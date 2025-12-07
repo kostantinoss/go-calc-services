@@ -1,1 +1,22 @@
-# create services deployment
+
+services:
+  server:
+    build:
+      context: ./server
+    image: server:latest
+
+  # gateway:
+  #   build:
+  #     context: ./gateway
+  #   image: gateway:latest
+
+  # lb:
+  #   build:
+  #     context: ./loadbalancer
+  #   image: lb:latest
+
+
+networks:
+  services-default:
+    driver: bridge
+  

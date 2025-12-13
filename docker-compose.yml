@@ -1,14 +1,34 @@
 
 services:
-  server:
+  server1:
     build:
       context: ./server
     image: server:latest
+    networks:
+      - services-default
 
-  # gateway:
-  #   build:
-  #     context: ./gateway
-  #   image: gateway:latest
+  server2:
+    build:
+      context: ./server
+    image: server:latest
+    networks:
+      - services-default
+
+  gateway:
+    networks:
+      - services-default
+    depends_on:
+      - server1
+      - server2
+    build:
+      context: ./gateway
+    image: gateway:latest
+    environment:
+      CONFIG_PATH: /app/config.yaml
+      SERVER1: http://server1:8080
+      SERVER2: http://server2:8080
+    volumes:
+      - ./gateway/config.yaml:/app/config.yaml
 
   # lb:
   #   build:

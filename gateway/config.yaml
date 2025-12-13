@@ -1,0 +1,24 @@
+api_gateway:
+  gateway_server:
+    port: "8080"
+    
+  target_servers:
+    - name: server1
+      url: http://server1:8080
+    - name: server2
+      url: http://server2:8080
+
+  routing:
+    - path: /add
+      methods: [POST]
+      server: server1
+    - path: /sub
+      methods: [POST]
+      server: server1
+    - path: /multi
+      methods: [POST]
+      server: server2
+    - path: /div
+      methods: [POST]
+      server: server2
+

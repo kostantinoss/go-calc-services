@@ -85,24 +85,30 @@ All endpoints accept JSON payloads with two numbers:
 
 ### Example Requests
 
+The services run in a bridge network, so you'll have to find the gateway's IP address using docker inspect.
+A handy command is:
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name_or_id>
+```
+
 ```bash
 # Addition
-curl -X POST http://localhost:8080/add \
+curl -X POST http://172.20.0.4:8080/add \
   -H "Content-Type: application/json" \
   -d '{"a": 10, "b": 5}'
 
 # Subtraction
-curl -X POST http://localhost:8080/sub \
+curl -X POST http://172.20.0.4:8080/sub \
   -H "Content-Type: application/json" \
   -d '{"a": 10, "b": 5}'
 
 # Multiplication
-curl -X POST http://localhost:8080/multi \
+curl -X POST http://172.20.0.4:8080/multi \
   -H "Content-Type: application/json" \
   -d '{"a": 10, "b": 5}'
 
 # Division
-curl -X POST http://localhost:8080/div \
+curl -X POST http://172.20.0.4:8080/div \
   -H "Content-Type: application/json" \
   -d '{"a": 10, "b": 5}'
 ```

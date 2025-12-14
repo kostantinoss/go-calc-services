@@ -164,7 +164,7 @@ docker compose build
 
 # Build specific service
 docker compose build gateway
-docker compose build server
+docker compose build server1
 ```
 
 

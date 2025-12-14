@@ -1,6 +1,6 @@
 # Go Calculator Microservices
 
-A microservices-based calculator API built with Go, featuring an API gateway, multiple calculator server instances, and Docker containerization.
+A microservices-based calculator API built with Go, featuring an API gateway, multiple calculator server instances.
 
 ## Architecture
 

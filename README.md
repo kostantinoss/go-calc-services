@@ -42,8 +42,8 @@ services/
 ### Running with Docker Compose
 
 ```bash
-# Build and start all services
-docker compose up --build
+# Build and start all services in background
+docker compose up --build -d
 
 # Run in background
 docker compose up -d
